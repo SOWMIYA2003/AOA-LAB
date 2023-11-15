@@ -1562,3 +1562,154 @@ if colors:
 
 ```
 # 19
+## merge
+```
+def merge(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+    L = [0] * (n1)
+    R = [0] * (n2)
+    for i in range(0, n1):
+        L[i] = arr[l + i]
+    for j in range(0, n2):
+        R[j] = arr[m + 1 + j]
+    i = 0     
+    j = 0     
+    k = l     
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+ 
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+def mergeSort(arr, l, r):
+    if l < r:
+        m = l+(r-l)//2
+        mergeSort(arr, l, m)
+        mergeSort(arr, m+1, r)
+        merge(arr, l, m, r)
+arr = []
+n = int(input())
+for i in range(n):
+    arr.append(int(input()))
+print("Given array is")
+for i in range(n):
+    print("%d" % arr[i],end=" ")
+mergeSort(arr, 0, n-1)
+print("\nSorted array is")
+for i in range(n):
+    print("%d" % arr[i],end=" ")
+```
+```
+n=int(input())
+
+a=list(map(int,input().split()))
+
+a.sort()
+
+t=0
+
+for i in range(2*n-2,-1,-2):
+    t+=a[i]
+
+print(t)
+```
+## quick
+```
+def quick_sort(alist, start, end):
+    #Sorts the list from indexes start to end - 1 inclusive
+    if end - start > 1:
+        p = partition(alist, start, end)
+        quick_sort(alist, start, p)
+        quick_sort(alist, p + 1, end)
+ 
+ 
+def partition(alist, start, end):
+    pivot = alist[start]
+    i = start + 1
+    j = end - 1
+    print("pivot: ",pivot)
+    while True:
+        while (i <= j and alist[i] <= pivot):
+            i = i + 1
+        while (i <= j and alist[j] >= pivot):
+            j = j - 1
+ 
+        if i <= j:
+            alist[i], alist[j] = alist[j], alist[i]
+        else:
+            alist[start], alist[j] = alist[j], alist[start]
+            return j
+
+#input list
+alist = []
+n=int(input())
+for i in range(n):
+    alist.append(int(input()))
+print('Input List\n', alist)
+
+#sort list
+quick_sort(alist, 0, len(alist))
+print('Sorted List\n', alist)
+```
+## DAY - 4 Linear search & Binary Search 
+```
+def binary_search(arr, low, high, x):
+    if high>=low:
+        mid=(high+low)//2
+        if arr[mid]==x:
+            return mid
+        elif arr[mid]>x:
+            return binary_search(arr, low, mid-1, x)
+        else:
+            return binary_search(arr, mid+1, high, x)
+    else:
+        return -1
+        
+List=[]
+n=int(input())
+for i in range(n):
+    List.append(int(input()))
+x=int(input())
+arr=sorted(List)
+res=binary_search(arr, 0, len(arr)-1, x)
+if res!=-1:
+    print("Element is present at index %d"%res)
+else:
+    print("Element is not present in array")
+	
+
+
+	
+
+
+
+```
+```
+def search(List, n):
+    isfound=False
+    for i in range(len(List)):
+        if List[i]==n:
+            isfound=True
+            return "Found"
+    if not isfound :
+        return "Not Found"
+            
+List=[]
+x=int(input())
+for i in range(x):
+    List.append(int(input()))
+n=int(input())
+print(search(List,n))
+```
