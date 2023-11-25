@@ -1566,9 +1566,10 @@ if colors:
     print()
 
 ```
-# ---------------------------------------------------------------------------------------------------
-# 19
-## merge
+# ---------------------------------------------------------------------
+# MOD 19
+## DAY 2 merge
+![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/9336058d-415e-407b-b239-e69737ed3f1c)
 ```
 def merge(arr, l, m, r):
     n1 = m - l + 1
@@ -1617,6 +1618,7 @@ print("\nSorted array is")
 for i in range(n):
     print("%d" % arr[i],end=" ")
 ```
+![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/ed6fdd48-2ddf-4b51-94cb-8d38c40ae585)
 ```
 n=int(input())
 
@@ -1630,6 +1632,107 @@ for i in range(2*n-2,-1,-2):
     t+=a[i]
 
 print(t)
+```
+![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/775debac-0788-43b5-adde-bc65230aa9d4)
+```
+def merge(S, temp, From, mid, to):
+ 
+    a = From
+    b = From
+    c = mid + 1
+ 
+    while b <= mid and c <= to:
+        if S[b] < S[c]:
+            temp[a] = S[b]
+            b = b + 1
+        else:
+            temp[a] = S[c]
+            c = c + 1
+        a = a + 1
+ 
+    # remaining elements
+    while b < len(S) and b <= mid:
+        temp[a] = S[b]
+        a = a + 1
+        b = b + 1
+ 
+    # copy back 
+    for b in range(From, to + 1):
+        S[b] = temp[b]
+ 
+ 
+# Iterative sort
+def Merge_Sort(S):
+ 
+    low = 0
+    high = len(S) - 1
+ 
+    # sort list
+    temp = S.copy()
+ 
+    d = 1
+    while d <= high - low:
+ 
+        for b in range(low, high, 2*d):
+            From = b
+            mid = b + d - 1
+            to = min(b + 2*d - 1, high)
+            merge(S, temp, From, mid, to)
+ 
+        d = 2*d
+ 
+
+if __name__ == '__main__':
+ 
+    S = []                    #[4, 2, 3, 1, 6, 5]
+    n=int(input())
+    for i in range(n):
+        S.append(int(input()))
+    print("The Original array is: ", S)
+    Merge_Sort(S)
+    print("Array after sorting is: ", S)
+```
+![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/0a76385c-a6d6-42e9-84a8-f526d568b52f)
+```
+def merge(left, right):
+    result = []
+    x, y = 0, 0
+    for k in range(0, len(left) + len(right)):
+        if x == len(left): 
+            result.append(right[y]) 
+            y += 1
+        elif y == len(right): 
+            result.append(left[x])
+            x += 1
+        elif right[y] < left[x]:
+            result.append(right[y])
+            y += 1
+        else:
+            result.append(left[x])
+            x += 1
+    return result
+def mergesort(ar_list):
+    length = len(ar_list)
+    size = 1
+    while size < length:
+        size+=size 
+        for pos in range(0, length, size):
+         start = pos
+         mid = pos + int(size / 2)
+         end = pos + size
+         left = ar_list[ start : mid ]
+         right = ar_list[ mid : end ]
+         print("left: ",left)
+         print("Right: ",right)
+         ar_list[start:end] = merge(left, right)
+    return ar_list 
+    
+    
+ar_list = []
+n=int(input())
+for i in range(n):
+    ar_list.append(float(input()))
+print(mergesort(ar_list))
 ```
 ## quick
 ```
