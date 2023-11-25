@@ -1,5 +1,6 @@
 # AOA-LAB
-# 24
+# ---------------------------------------------------------------------------------------------------
+# MOD 24
 ## CHERRY PICK UP PROBLEM
 ![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/12043ed6-90da-4ffc-8f1d-a6b4670f0810)
 ```
@@ -247,7 +248,8 @@ for i in range(n):
     test_scores.append(int(input()))
 print("Maximum value is ",find_maximum(test_scores))
 ```
-# 23
+# ---------------------------------------------------------------------------------------------------
+# MOD 23
 ## DAY -1 Minimum Cost Path
 ![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/c5afd29f-61cd-4b04-9627-fb967d418da2)
 ```
@@ -801,6 +803,7 @@ for i in range(n):
 print('Minimum number of jumps to reach','end is', minJumps(arr, 0, n-1))
  
 ```
+# ---------------------------------------------------------------------------------------------------
 # 22
 ## DAY 1 - DYNAMIC PROGRAMMING - 1
 ![image](https://github.com/SOWMIYA2003/AOA-LAB/assets/93427443/3b5c8dc0-e36b-4bb3-8f73-f999304d5b23)
@@ -1297,7 +1300,9 @@ t=input()
 print(LD(s,t))
 
 ```
+# ---------------------------------------------------------------------------------------------------
 # 21
+# ---------------------------------------------------------------------------------------------------
 # 20
 ## BACKTRACKING - RAT IN MAZE PROBLEM
 ```
@@ -1561,6 +1566,7 @@ if colors:
     print()
 
 ```
+# ---------------------------------------------------------------------------------------------------
 # 19
 ## merge
 ```
